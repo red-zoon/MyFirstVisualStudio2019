@@ -1,0 +1,56 @@
+これから作ってもらうプログラムの仕様
+
+・必須のクラス
+
+　【GameObjectクラス】
+　　・Componentクラスを複数持っている
+　　・stringで名前を持つ
+　　・update関数、draw関数でComponentの処理を呼んではいけない
+
+　【GameObjectManagerクラス】
+　　・GameObjectを複数持っている
+　　・GameObject作成処理を持つ
+
+　【Componentクラス】
+　　・update関数、draw関数
+　　　・update関数の仕様->「所持するGameObject名 + "update"と出力する」
+　　　・draw関数の仕様　->「所持するGameObject名 + "draw"と出力する」
+
+
+※つまり「ComponentManagerクラス」みたいな存在が必要になる
+
+・上記の条件を満たしながら、以下のような出力をするプログラムを作ろう
+--------------------------------------------------------------------------------
+
+  "プログラム開始" <-起動時に出力
+
+  "フレーム更新"   <-ゲームフレームが１週したら出力
+  "ObjectA update"
+  "ObjectB update"
+
+  "ObjectA draw"
+  "ObjectB draw"
+
+  入力待ち --> aと入力
+
+  "フレーム更新"   <-ゲームフレームが１週したら出力
+  "ObjectA update"
+  "ObjectB update"
+
+  "ObjectA draw"
+  "ObjectB draw"
+
+  入力待ち --> addと入力
+
+  "フレーム更新"   <-ゲームフレームが１週したら出力
+  "ObjectA update"
+  "ObjectB update"
+  "ObjectC update"
+
+  "ObjectA draw"
+  "ObjectB draw"
+  "ObjectC draw"
+
+  入力待ち --> endと入力
+
+  "プログラム終了" <-終了時に出力
