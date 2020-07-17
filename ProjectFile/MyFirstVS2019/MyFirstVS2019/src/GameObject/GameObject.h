@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Component.h"
+//#include "Component.h"
 #include <string>
 
 class GameObject {
 public:
 	// コンストラクタ
-	GameObject(std::string name);
+	GameObject(const std::string& name);
 	// デストラクタ
 	~GameObject();
 	// 更新

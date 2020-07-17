@@ -1,8 +1,9 @@
 #include "GameObject.h"
 #include <iostream>
+#include <string>
 
 // コンストラクタ
-GameObject::GameObject(std::string name) {
+GameObject::GameObject(const std::string& name) {
 	_name = name;
 }
 

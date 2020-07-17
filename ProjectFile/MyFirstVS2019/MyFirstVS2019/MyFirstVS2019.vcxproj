@@ -141,17 +141,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Component.cpp" />
-    <ClCompile Include="src\ComponentManager.cpp" />
-    <ClCompile Include="src\GameObject.cpp" />
-    <ClCompile Include="src\GameObjectManager.cpp" />
+    <ClCompile Include="src\Component\Component.cpp" />
+    <ClCompile Include="src\ComponentManager\ComponentManager.cpp" />
+    <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\GameObjectManager\GameObjectManager.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Component.h" />
-    <ClInclude Include="src\ComponentManager.h" />
-    <ClInclude Include="src\GameObject.h" />
-    <ClInclude Include="src\GameObjectManager.h" />
+    <ClInclude Include="src\Component\Component.h" />
+    <ClInclude Include="src\ComponentManager\ComponentManager.h" />
+    <ClInclude Include="src\GameObject\GameObject.h" />
+    <ClInclude Include="src\GameObjectManager\GameObjectManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

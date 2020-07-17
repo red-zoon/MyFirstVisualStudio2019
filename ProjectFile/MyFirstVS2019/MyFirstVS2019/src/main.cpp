@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "GameObject.h"
-#include "GameObjectManager.h"
+#include "GameObject/GameObject.h"
+#include "GameObjectManager/GameObjectManager.h"
 
 int main() {
 	std::cout << "プログラム開始" << std::endl;
@@ -9,7 +9,9 @@ int main() {
 
 	GameObjectManager gameObjectManager;
 
-	gameObjectManager.add(new GameObject("ObjectA"));
+	std::string obj = "ObjectB";
+
+	gameObjectManager.add(new GameObject(obj));
 	gameObjectManager.add(new GameObject("ObjectB"));
 
 	gameObjectManager.update();
