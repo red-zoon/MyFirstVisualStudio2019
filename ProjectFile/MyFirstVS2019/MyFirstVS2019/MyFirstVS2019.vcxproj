@@ -142,12 +142,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\ComponentManager.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GameObjectManager.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\ComponentManager.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\GameObjectManager.h" />
   </ItemGroup>

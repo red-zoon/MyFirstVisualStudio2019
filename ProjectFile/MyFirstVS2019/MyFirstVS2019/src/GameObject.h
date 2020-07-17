@@ -1,8 +1,18 @@
 #pragma once
 
+#include "Component.h"
+#include <string>
+
 class GameObject {
 public:
-	virtual ~GameObject() {}	// 仮想デストラクタ
-	// 表示
-	virtual void print() = 0;
+	// コンストラクタ
+	GameObject(std::string name);
+	// デストラクタ
+	~GameObject();
+	// 更新
+	void update();
+	// 描画
+	void draw();
+private:
+	std::string _name;
 };
