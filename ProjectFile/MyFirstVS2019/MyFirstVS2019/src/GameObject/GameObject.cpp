@@ -1,6 +1,6 @@
 #include "GameObject.h"
+
 #include <iostream>
-#include <string>
 
 // コンストラクタ
 GameObject::GameObject(const std::string& name) {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameObject.h"
+#include "../GameObject/GameObject.h"
 #include <list>
 
 class GameObjectManager {
@@ -16,5 +16,5 @@ public:
 	// ゲームオブジェクトの描画
 	void draw();
 private:
-	std::list<GameObject*> gameObjects_;
+	std::list<GameObject*> _gameObjects;
 };

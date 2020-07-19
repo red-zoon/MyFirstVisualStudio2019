@@ -2,23 +2,23 @@
 
 // デストラクタ
 GameObjectManager::~GameObjectManager() {
-	for (auto gameObject : gameObjects_) {
+	for (auto gameObject : _gameObjects) {
 		delete gameObject;
 	}
 }
 
 void GameObjectManager::add(GameObject* gameObject) {
-	gameObjects_.push_back(gameObject);
+	_gameObjects.push_back(gameObject);
 }
 
 void GameObjectManager::update() {
-	for (auto gameObject : gameObjects_) {
+	for (auto gameObject : _gameObjects) {
 		gameObject->update();
 	}
 }
 
 void GameObjectManager::draw() {
-	for (auto gameObject : gameObjects_) {
+	for (auto gameObject : _gameObjects) {
 		gameObject->draw();
 	}
 }
