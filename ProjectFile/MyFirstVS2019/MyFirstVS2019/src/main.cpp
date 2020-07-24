@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 #include "GameObject/GameObject.h"
 #include "GameObjectManager/GameObjectManager.h"
@@ -8,11 +9,11 @@ int main() {
 	std::cout << std::endl;
 
 	GameObjectManager gameObjectManager;
-
-	std::string obj = "ObjectA";
-
-	gameObjectManager.add(new GameObject(obj));
-	gameObjectManager.add(new GameObject("ObjectB"));
+	
+	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("ObjectA");
+	gameObjectManager.add(objA);
+	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("ObjectB");
+	gameObjectManager.add(objB);
 
 	gameObjectManager.update();
 	std::cout << std::endl;

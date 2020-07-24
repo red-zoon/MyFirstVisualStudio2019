@@ -4,7 +4,6 @@
 // コンストラクタ
 GameObject::GameObject(const std::string& name) {
 	_name = name;
-	_componentManager.add(this);
 }
 
 // デストラクタ

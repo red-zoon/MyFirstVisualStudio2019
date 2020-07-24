@@ -2,8 +2,8 @@
 #include "../GameObject/GameObject.h"
 #include <iostream>
 
-Component::Component(GameObject* gameobject) {
-	_name = gameobject->getName();
+Component::Component(std::shared_ptr<GameObject> gameObject) {
+	_name = gameObject->getName();
 }
 
 // デストラクタ

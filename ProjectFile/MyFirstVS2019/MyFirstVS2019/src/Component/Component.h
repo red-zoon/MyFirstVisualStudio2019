@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <memory>
 
 class GameObject;
 
@@ -7,7 +8,7 @@ class Component
 {
 public:
 	// コンストラクタ
-	Component(GameObject* gameObject);
+	Component(std::shared_ptr<GameObject> gameObject);
 	// デストラクタ
 	~Component();
 	// 更新

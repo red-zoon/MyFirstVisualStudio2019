@@ -4,13 +4,11 @@
 
 // デストラクタ
 ComponentManager::~ComponentManager() {
-	for (auto component : _components) {
-		delete component;
-	}
 }
 
-void ComponentManager::add(GameObject* gameObject) {
-	_components.push_back(new Component(gameObject));
+void ComponentManager::add(std::shared_ptr<GameObject> gameObject) {
+	std::shared_ptr<Component> component = std::make_shared<Component>(gameObject);
+	_components.push_back(component);
 }
 
 void ComponentManager::update() {

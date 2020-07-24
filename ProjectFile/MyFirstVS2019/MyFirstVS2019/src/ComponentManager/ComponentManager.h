@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <memory>
 
 class GameObject;
 class Component;
@@ -11,12 +12,12 @@ public:
 	// デストラクタ
 	~ComponentManager();
 	// コンポーネントの追加
-	void add(GameObject* gameObject);
+	void add(std::shared_ptr<GameObject> gameObject);
 	// コンポーネントの更新
 	void update();
 	// コンポーネントの描画
 	void draw();
 private:
 	// コンポーネントリスト
-	std::list<Component*> _components;
+	std::list<std::shared_ptr<Component>> _components;
 };

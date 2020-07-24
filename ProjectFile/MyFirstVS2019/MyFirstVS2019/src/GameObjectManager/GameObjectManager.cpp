@@ -3,12 +3,9 @@
 
 // デストラクタ
 GameObjectManager::~GameObjectManager() {
-	for (auto gameObject : _gameObjects) {
-		delete gameObject;
-	}
 }
 
-void GameObjectManager::add(GameObject* gameObject) {
+void GameObjectManager::add(std::shared_ptr<GameObject> gameObject) {
 	_gameObjects.push_back(gameObject);
 }
 

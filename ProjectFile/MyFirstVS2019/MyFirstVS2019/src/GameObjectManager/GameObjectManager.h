@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <memory>
 
 class GameObject;
 
@@ -10,12 +11,12 @@ public:
 	// デストラクタ
 	~GameObjectManager();
 	// ゲームオブジェクトの追加
-	void add(GameObject* gameObject);
+	void add(std::shared_ptr<GameObject> gameObject);
 	// ゲームオブジェクトの更新
 	void update();
 	// ゲームオブジェクトの描画
 	void draw();
 private:
 	// ゲームオブジェクトリスト
-	std::list<GameObject*> _gameObjects;
+	std::list<std::shared_ptr<GameObject>> _gameObjects;
 };
