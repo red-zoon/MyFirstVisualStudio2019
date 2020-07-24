@@ -2,6 +2,8 @@
 #include "../Component/Component.h"
 #include <list>
 
+class GameObject;
+
 class ComponentManager {
 public:
 	// コンストラクタ
@@ -9,11 +11,12 @@ public:
 	// デストラクタ
 	~ComponentManager();
 	// コンポーネントの追加
-	void add(Component* component);
+	void add(GameObject* gameObject);
 	// コンポーネントの更新
 	void update();
 	// コンポーネントの描画
 	void draw();
 private:
+	// コンポーネントリスト
 	std::list<Component*> _components;
 };

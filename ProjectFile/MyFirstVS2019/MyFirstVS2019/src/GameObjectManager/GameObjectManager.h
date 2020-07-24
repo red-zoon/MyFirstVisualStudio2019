@@ -15,5 +15,6 @@ public:
 	// ゲームオブジェクトの描画
 	void draw();
 private:
+	// ゲームオブジェクトリスト
 	std::list<GameObject*> _gameObjects;
 };
