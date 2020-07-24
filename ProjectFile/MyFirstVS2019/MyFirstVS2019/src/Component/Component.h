@@ -3,9 +3,6 @@
 
 class GameObject;
 
-#include "../GameObject/GameObject.h"
-#include <string>
-
 class Component
 {
 public:
