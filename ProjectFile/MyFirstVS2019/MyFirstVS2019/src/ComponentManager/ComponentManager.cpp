@@ -1,5 +1,6 @@
 #include "ComponentManager.h"
 #include "../GameObject/GameObject.h"
+#include "../Component/Component.h"
 
 // デストラクタ
 ComponentManager::~ComponentManager() {

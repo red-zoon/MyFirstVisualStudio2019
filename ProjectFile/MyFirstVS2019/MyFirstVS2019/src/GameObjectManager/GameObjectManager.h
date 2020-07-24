@@ -1,6 +1,7 @@
 #pragma once
-#include "../GameObject/GameObject.h"
 #include <list>
+
+class GameObject;
 
 class GameObjectManager {
 public:

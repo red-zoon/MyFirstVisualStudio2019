@@ -4,6 +4,7 @@
 // コンストラクタ
 GameObject::GameObject(const std::string& name) {
 	_name = name;
+	_componentManager.add(this);
 }
 
 // デストラクタ
@@ -11,11 +12,11 @@ GameObject::~GameObject() {
 }
 
 void GameObject::update() {
-	std::cout << _name << " " << "update" << std::endl;
+	_componentManager.update();
 }
 
 void GameObject::draw() {
-	std::cout << _name << " " << "draw" << std::endl;
+	_componentManager.draw();
 }
 
 const std::string& GameObject::getName() {
