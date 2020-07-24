@@ -1,4 +1,5 @@
 #pragma once
+#include "../ComponentManager/ComponentManager.h"
 #include <string>
 
 class GameObject {
@@ -11,6 +12,11 @@ public:
 	void update();
 	// 描画
 	void draw();
+	// 名前を返す
+	const std::string& getName();
 private:
+	// 名前
 	std::string _name;
+	// コンポーネントマネージャー
+	ComponentManager _componentManager;
 };
