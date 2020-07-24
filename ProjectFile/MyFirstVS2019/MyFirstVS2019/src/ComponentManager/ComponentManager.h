@@ -1,4 +1,5 @@
 #pragma once
+#include "../GameObject/GameObject.h"
 #include "../Component/Component.h"
 #include <list>
 

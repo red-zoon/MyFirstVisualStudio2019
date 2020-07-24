@@ -2,14 +2,18 @@
 #include "../GameObject/GameObject.h"
 #include <iostream>
 
+Component::Component(GameObject* gameobject) {
+	_name = gameobject->getName();
+}
+
 // デストラクタ
 Component::~Component() {
 }
 
 void Component::update() {
-	std::cout << "Component" << "update" << std::endl;
+	std::cout << _name << " " << "update" << std::endl;
 }
 
 void Component::draw() {
-	std::cout << "Component" << "draw" << std::endl;
+	std::cout << _name << " " << "draw" << std::endl;
 }
