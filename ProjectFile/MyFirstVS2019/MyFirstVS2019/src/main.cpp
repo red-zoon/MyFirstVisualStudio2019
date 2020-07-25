@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include <memory>
 
 #include "GameObject/GameObject.h"
@@ -11,19 +13,44 @@ int main() {
 
 	GameObjectManager gameObjectManager;
 	ComponentManager componentManager;
-	
+
+	std::vector<std::string> objectName { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+	int objectCount = 2;
+
 	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("ObjectA");
 	gameObjectManager.add(objA);
 	componentManager.add(objA);
+
 	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("ObjectB");
 	gameObjectManager.add(objB);
 	componentManager.add(objB);
 
-	componentManager.update();
-	std::cout << std::endl;
+	std::string command;
 
-	componentManager.draw();
-	std::cout << std::endl;
+	while (true)
+	{
+		componentManager.update();
+		std::cout << std::endl;
+
+		componentManager.draw();
+		std::cout << std::endl;
+
+		std::cin >> command;
+		std::wcout << std::endl;
+
+		if (command == "add") {
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + objectName[objectCount]);
+			gameObjectManager.add(obj);
+			componentManager.add(obj);
+			if (objectCount < 25) {
+				objectCount++;
+			}
+			continue;
+		}
+		else if (command == "end") {
+			break;
+		}
+	}
 
 	std::cout << "ƒvƒƒOƒ‰ƒ€I—¹" << std::endl;
 }
