@@ -11,11 +11,9 @@ GameObject::~GameObject() {
 }
 
 void GameObject::update() {
-	_componentManager.update();
 }
 
 void GameObject::draw() {
-	_componentManager.draw();
 }
 
 const std::string& GameObject::getName() {
