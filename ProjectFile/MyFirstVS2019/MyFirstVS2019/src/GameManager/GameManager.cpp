@@ -19,12 +19,12 @@ void GameManager::run() {
 
 	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + objectName[objectCount]);
 	gameObjectManager.add(objA);
-	componentManager.add(objA);
+	componentManager.addTestOutput(objA);
 	objectCount++;
 
 	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + objectName[objectCount]);
 	gameObjectManager.add(objB);
-	componentManager.add(objB);
+	componentManager.addTestOutput(objB);
 	objectCount++;
 
 	while (true)
@@ -41,7 +41,7 @@ void GameManager::run() {
 		if (command == "add") {
 			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + objectName[objectCount]);
 			gameObjectManager.add(obj);
-			componentManager.add(obj);
+			componentManager.addTestOutput(obj);
 			if (objectCount < 25) {
 				objectCount++;
 			}

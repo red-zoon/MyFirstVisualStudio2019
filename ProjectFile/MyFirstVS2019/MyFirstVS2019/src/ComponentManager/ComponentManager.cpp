@@ -1,14 +1,15 @@
 #include "ComponentManager.h"
 #include "../GameObject/GameObject.h"
 #include "../Component/Component.h"
+#include "../Component/TestOutput/TestOutput.h"
 
 // デストラクタ
 ComponentManager::~ComponentManager() {
 }
 
-void ComponentManager::add(std::shared_ptr<GameObject> gameObject) {
-	std::shared_ptr<Component> component = std::make_shared<Component>(gameObject);
-	_components.push_back(component);
+void ComponentManager::addTestOutput(std::shared_ptr<GameObject> gameObject) {
+	std::shared_ptr<TestOutput> testOutput = std::make_shared<TestOutput>(gameObject);
+	_components.push_back(testOutput);
 }
 
 void ComponentManager::update() {

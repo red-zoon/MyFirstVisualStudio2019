@@ -12,7 +12,7 @@ public:
 	// デストラクタ
 	~ComponentManager();
 	// コンポーネントの追加
-	void add(std::shared_ptr<GameObject> gameObject);
+	void addTestOutput(std::shared_ptr<GameObject> gameObject);
 	// コンポーネントの更新
 	void update();
 	// コンポーネントの描画
