@@ -7,7 +7,7 @@
 ComponentManager::~ComponentManager() {
 }
 
-void ComponentManager::addTestOutput(std::shared_ptr<GameObject> gameObject) {
+void ComponentManager::addTestOutput(const std::shared_ptr<GameObject> gameObject) {
 	std::shared_ptr<TestOutput> testOutput = std::make_shared<TestOutput>(gameObject);
 	_components.push_back(testOutput);
 }

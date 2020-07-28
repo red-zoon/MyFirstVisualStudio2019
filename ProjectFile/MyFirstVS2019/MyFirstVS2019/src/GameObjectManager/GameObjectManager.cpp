@@ -5,7 +5,7 @@
 GameObjectManager::~GameObjectManager() {
 }
 
-void GameObjectManager::add(std::shared_ptr<GameObject> gameObject) {
+void GameObjectManager::add(const std::shared_ptr<GameObject>& gameObject) {
 	_gameObjects.push_back(gameObject);
 }
 

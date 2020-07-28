@@ -11,7 +11,7 @@ public:
 	// デストラクタ
 	~GameObjectManager();
 	// ゲームオブジェクトの追加
-	void add(std::shared_ptr<GameObject> gameObject);
+	void add(const std::shared_ptr<GameObject>& gameObject);
 	// ゲームオブジェクトの更新
 	void update();
 	// ゲームオブジェクトの描画
