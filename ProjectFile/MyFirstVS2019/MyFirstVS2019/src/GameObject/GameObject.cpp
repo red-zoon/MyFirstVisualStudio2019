@@ -16,6 +16,6 @@ void GameObject::update() {
 void GameObject::draw() {
 }
 
-const std::string& GameObject::getName() {
+std::string& GameObject::getName() {
 	return _name;
 }

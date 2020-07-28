@@ -1,14 +1,11 @@
 #include "GameManager.h"
 #include <iostream>
+#include <string>
 #include <vector>
 #include <memory>
 #include "../GameObject/GameObject.h"
 #include "../GameObjectManager/GameObjectManager.h"
 #include "../ComponentManager/ComponentManager.h"
-
-// デストラクタ
-GameManager::~GameManager() {
-}
 
 void GameManager::run() {
 	std::cout << "プログラム開始" << std::endl;
@@ -17,12 +14,18 @@ void GameManager::run() {
 	GameObjectManager gameObjectManager;
 	ComponentManager componentManager;
 
-	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + objectName[objectCount]);
+	// 名前の格納とカウント用変数
+	std::vector<char> objectName{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+	int objectCount{ 0 };
+	
+	std::string defName1{ objectName[objectCount] };
+	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + defName1);
 	gameObjectManager.add(objA);
 	componentManager.addTestOutput(objA);
 	objectCount++;
 
-	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + objectName[objectCount]);
+	std::string defName2{ objectName[objectCount] };
+	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + defName2);
 	gameObjectManager.add(objB);
 	componentManager.addTestOutput(objB);
 	objectCount++;
@@ -35,15 +38,17 @@ void GameManager::run() {
 		componentManager.draw();
 		std::cout << std::endl;
 
+		std::string command;
 		std::cin >> command;
 		std::wcout << std::endl;
 
 		if (command == "add") {
-			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + objectName[objectCount]);
+			std::string name{ objectName[objectCount] };
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
 			gameObjectManager.add(obj);
 			componentManager.addTestOutput(obj);
 			if (objectCount < 25) {
-				objectCount++;
+				++objectCount;
 			}
 			continue;
 		}

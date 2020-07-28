@@ -4,7 +4,7 @@
 class GameObject {
 public:
 	// コンストラクタ
-	GameObject(const std::string& name);
+	explicit GameObject(const std::string& name);
 	// デストラクタ
 	~GameObject();
 	// 更新
@@ -12,7 +12,7 @@ public:
 	// 描画
 	void draw();
 	// 名前を返す
-	const std::string& getName();
+	std::string& getName();
 private:
 	// 名前
 	std::string _name;
