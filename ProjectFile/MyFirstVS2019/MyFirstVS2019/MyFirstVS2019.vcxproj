@@ -142,7 +142,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\ComponentManager\ComponentManager.cpp" />
+    <ClCompile Include="src\Component\CloneObject\CloneObject.cpp" />
     <ClCompile Include="src\Component\Component.cpp" />
+    <ClCompile Include="src\Component\DestroyObject\DestroyObject.cpp" />
     <ClCompile Include="src\Component\TestOutput\TestOutput.cpp" />
     <ClCompile Include="src\GameManager\GameManager.cpp" />
     <ClCompile Include="src\GameObject\GameObject.cpp" />
@@ -150,8 +152,10 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Component\CloneObject\CloneObject.h" />
     <ClInclude Include="src\Component\Component.h" />
     <ClInclude Include="src\ComponentManager\ComponentManager.h" />
+    <ClInclude Include="src\Component\DestroyObject\DestroyObject.h" />
     <ClInclude Include="src\Component\TestOutput\TestOutput.h" />
     <ClInclude Include="src\GameManager\GameManager.h" />
     <ClInclude Include="src\GameObject\GameObject.h" />

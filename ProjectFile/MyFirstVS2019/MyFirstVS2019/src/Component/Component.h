@@ -3,12 +3,14 @@
 #include <memory>
 
 class GameObject;
+class GameObjectManager;
+class ComponentManager;
 
 class Component
 {
 public:
 	// コンポーネント
-	explicit Component(std::shared_ptr<GameObject> gameObject);
+	explicit Component(const std::shared_ptr<GameObject> gameObject, const GameObjectManager& gameObjectManager, const ComponentManager& componentManager);
 	// 仮想デストラクタ
 	virtual ~Component() {};
 	// 更新
@@ -17,5 +19,7 @@ public:
 	virtual void draw() {};
 protected:
 	// GameObjectの名前
-	std::string& _name;
+	const std::string& _name;
+	const GameObjectManager& _gameObjectManager;
+	const ComponentManager& _componentManager;
 };

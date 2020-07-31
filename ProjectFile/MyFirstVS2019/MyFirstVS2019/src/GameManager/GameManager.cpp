@@ -21,13 +21,13 @@ void GameManager::run() {
 	std::string defName1{ objectName[objectCount] };
 	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + defName1);
 	gameObjectManager.add(objA);
-	componentManager.addTestOutput(objA);
+	componentManager.addTestOutput(objA, gameObjectManager, componentManager);
 	objectCount++;
 
 	std::string defName2{ objectName[objectCount] };
 	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + defName2);
 	gameObjectManager.add(objB);
-	componentManager.addTestOutput(objB);
+	componentManager.addTestOutput(objB, gameObjectManager, componentManager);
 	objectCount++;
 
 	while (true)
@@ -46,7 +46,38 @@ void GameManager::run() {
 			std::string name{ objectName[objectCount] };
 			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
 			gameObjectManager.add(obj);
-			componentManager.addTestOutput(obj);
+			componentManager.addTestOutput(obj, gameObjectManager, componentManager);
+			if (objectCount < 25) {
+				++objectCount;
+			}
+			continue;
+		}
+		else if (command == "clone") {
+			std::string name{ objectName[objectCount] };
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
+			gameObjectManager.add(obj);
+			componentManager.addTestOutput(obj, gameObjectManager, componentManager);
+
+			int cloneNum;
+			std::cin >> cloneNum;
+			std::cout << std::endl;
+
+			componentManager.addCloneObject(obj, cloneNum, gameObjectManager, componentManager);
+			if (objectCount < 25) {
+				++objectCount;
+			}
+			continue;
+		}
+		else if (command == "destroy") {
+			std::string name{ objectName[objectCount] };
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
+			gameObjectManager.add(obj);
+			componentManager.addTestOutput(obj, gameObjectManager, componentManager);
+
+			std::cin >> command;
+			std::cout << std::endl;
+			componentManager.addDestroyObject(obj, command, gameObjectManager, componentManager);
+
 			if (objectCount < 25) {
 				++objectCount;
 			}
