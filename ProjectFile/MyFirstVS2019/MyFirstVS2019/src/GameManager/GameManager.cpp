@@ -17,15 +17,13 @@ void GameManager::run() {
 	// 名前の格納とカウント用変数
 	std::vector<char> objectName{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 	int objectCount{ 0 };
-	
-	std::string defName1{ objectName[objectCount] };
-	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + defName1);
+
+	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 	gameObjectManager->add(objA);
 	componentManager->addTestOutput(objA, gameObjectManager, componentManager);
 	objectCount++;
 
-	std::string defName2{ objectName[objectCount] };
-	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + defName2);
+	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 	gameObjectManager->add(objB);
 	componentManager->addTestOutput(objB, gameObjectManager, componentManager);
 	objectCount++;
@@ -40,21 +38,19 @@ void GameManager::run() {
 
 		std::string command;
 		std::cin >> command;
-		std::wcout << std::endl;
+		std::cout << std::endl;
 
 		if (command == "add") {
-			std::string name{ objectName[objectCount] };
-			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
 			componentManager->addTestOutput(obj, gameObjectManager, componentManager);
-			if (objectCount < 25) {
+			if (objectCount < objectName.size()) {
 				++objectCount;
 			}
 			continue;
 		}
 		else if (command == "clone") {
-			std::string name{ objectName[objectCount] };
-			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
 			componentManager->addTestOutput(obj, gameObjectManager, componentManager);
 
@@ -62,15 +58,14 @@ void GameManager::run() {
 			std::cin >> cloneNum;
 			std::cout << std::endl;
 
-			componentManager->addCloneObject(obj, cloneNum, gameObjectManager, componentManager);
-			if (objectCount < 25) {
+			componentManager->addCloneObject(obj, cloneNum, gameObjectManager, componentManager, false);
+			if (objectCount < objectName.size()) {
 				++objectCount;
 			}
 			continue;
 		}
 		else if (command == "destroy") {
-			std::string name{ objectName[objectCount] };
-			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + name);
+			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
 			componentManager->addTestOutput(obj, gameObjectManager, componentManager);
 
@@ -78,7 +73,7 @@ void GameManager::run() {
 			std::cout << std::endl;
 			componentManager->addDestroyObject(obj, command, gameObjectManager, componentManager);
 
-			if (objectCount < 25) {
+			if (objectCount < objectName.size()) {
 				++objectCount;
 			}
 			continue;
