@@ -5,17 +5,15 @@
 #include <iostream>
 
 void CloneObject::update() {
-	ComponentManager componentManager = _componentManager;
-	GameObjectManager gameObjectManager = _gameObjectManager;
 	if (!awake) {
-		cloneNum = componentManager.countReset();
+		cloneNum = _componentManager.lock()->countReset();
 		awake = true;
 	}
 
 	if (cloneNum > 0) {
 		std::shared_ptr<GameObject> obj = std::make_shared<GameObject>(_nameObject.lock()->getName());
-		gameObjectManager.add(obj);
-		componentManager.addTestOutput(obj, gameObjectManager, componentManager);
+		_gameObjectManager.lock()->add(obj);
+		_componentManager.lock()->addTestOutput(obj, _gameObjectManager.lock(), _componentManager.lock());
 	}
 
 	--cloneNum;
