@@ -5,6 +5,8 @@
 
 class GameObject;
 class Component;
+class GameObjectManager;
+class ComponentManager;
 
 class ComponentManager {
 public:

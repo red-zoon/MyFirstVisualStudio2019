@@ -1,8 +1,5 @@
 #pragma once
 #include "../Component.h"
-#include <memory>
-
-class GameObject;
 
 class TestOutput : public Component
 {
