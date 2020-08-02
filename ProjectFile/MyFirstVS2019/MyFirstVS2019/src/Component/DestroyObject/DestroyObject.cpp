@@ -3,8 +3,11 @@
 #include <iostream>
 
 void DestroyObject::update() {
-	std::shared_ptr<GameObject> gameObject = _nameObject.lock();
-	std::cout << gameObject->getName() << " " << "destroy" << std::endl;
+	std::string command;
+	std::cin >> command;
+	std::cout << std::endl;
+
+	std::cout << _nameObject.lock()->getName() << " " << "destroy" << std::endl;
 }
 
 void DestroyObject::draw() {

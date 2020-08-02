@@ -19,4 +19,5 @@ public:
 private:
 	bool awake{ false };
 	int cloneNum{ 0 };
+	bool isClone{ false };
 };

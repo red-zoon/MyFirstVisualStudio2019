@@ -4,11 +4,9 @@
 #include "../../GameObject/GameObject.h"
 
 void TestOutput::update() {
-	std::shared_ptr<GameObject> gameObject = _nameObject.lock();
-	std::cout << gameObject->getName() << " " << "update" << std::endl;
+	std::cout << _nameObject.lock()->getName() << " " << "update" << std::endl;
 }
 
 void TestOutput::draw() {
-	std::shared_ptr<GameObject> gameObject = _nameObject.lock();
-	std::cout << gameObject->getName() << " " << "draw" << std::endl;
+	std::cout << _nameObject.lock()->getName() << " " << "draw" << std::endl;
 }
