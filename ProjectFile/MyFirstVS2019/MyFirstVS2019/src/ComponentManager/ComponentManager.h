@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include <list>
 #include <memory>
 
@@ -19,10 +18,12 @@ public:
 	std::shared_ptr<T> createComponent(const std::shared_ptr<GameObject>& ownerGameObject) {
 		return std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this()); // shared_from_this()を使用する際はどこかで親クラスのshared_ptrを作っている必要がある。
 	}
-	// コンポーネントの追加
-	template <class T>
-	void addComponent(const std::shared_ptr<T>& component) {
+	// コンポーネントの生成
+	template<class T>
+	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject) {
+		std::shared_ptr<T> component = createComponent<T>(ownerGameObject);
 		_components.push_back(component);
+		return component;
 	}
 	// コンポーネントの更新
 	void update();
