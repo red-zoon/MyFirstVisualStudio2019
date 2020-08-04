@@ -19,7 +19,7 @@ public:
 	virtual void draw() {};
 protected:
 	// 必要なポインタ群
-	const std::weak_ptr<GameObject> _OwnerObjectPtr;
-	const std::weak_ptr<GameObjectManager> _GameObjectManager;
-	const std::weak_ptr<ComponentManager> _ComponentManager;
+	const std::weak_ptr<GameObject> _ownerObjectPtr;
+	const std::weak_ptr<GameObjectManager> _gameObjectManager;
+	const std::weak_ptr<ComponentManager> _componentManager;
 };
