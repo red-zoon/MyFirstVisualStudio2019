@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include <memory>
 
 class GameObject;
@@ -16,6 +15,7 @@ private:
 	std::shared_ptr<GameObject> createAndAddGameObject(const std::shared_ptr<GameObjectManager>& ownerManager);
 private:
 	// 名前の格納とカウント用変数
-	std::vector<char> _objectName{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+	const char _startChar{ 'A' };
+	const char _endChar{ 'Z' };
 	int _objectCount{ 0 };
 };

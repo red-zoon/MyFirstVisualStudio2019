@@ -61,9 +61,10 @@ void GameManager::run() {
 }
 
 std::shared_ptr<GameObject> GameManager::createAndAddGameObject(const std::shared_ptr<GameObjectManager>& ownerManager){
-	std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ _objectName[_objectCount] });
+	char nextChar = _startChar + _objectCount;
+	std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ nextChar });
 	ownerManager->add(obj);
-	if (_objectCount < static_cast<int>(_objectName.size())) {
+	if (_objectCount < static_cast<int>(_endChar - _startChar)) {
 		_objectCount++;
 	}
 	return obj;
