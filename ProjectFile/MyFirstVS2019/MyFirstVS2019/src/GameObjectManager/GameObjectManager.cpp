@@ -10,13 +10,13 @@ void GameObjectManager::add(const std::shared_ptr<GameObject>& gameObject) {
 }
 
 void GameObjectManager::update() {
-	for (auto gameObject : _gameObjects) {
+	for (auto& gameObject : _gameObjects) {
 		gameObject->update();
 	}
 }
 
 void GameObjectManager::draw() {
-	for (auto gameObject : _gameObjects) {
+	for (auto& gameObject : _gameObjects) {
 		gameObject->draw();
 	}
 }

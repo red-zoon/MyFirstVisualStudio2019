@@ -22,13 +22,13 @@ void GameManager::run() {
 
 	std::shared_ptr<GameObject> objA = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 	gameObjectManager->add(objA);
-	std::shared_ptr<TestOutput> testOutPut1 = componentManager->createComponent<TestOutput>(objA, gameObjectManager, componentManager);
+	std::shared_ptr<TestOutput> testOutPut1 = componentManager->createComponent<TestOutput>(objA, gameObjectManager);
 	componentManager->addComponent(testOutPut1);
 	objectCount++;
 
 	std::shared_ptr<GameObject> objB = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 	gameObjectManager->add(objB);
-	std::shared_ptr<TestOutput> testOutPut2 = componentManager->createComponent<TestOutput>(objB, gameObjectManager, componentManager);
+	std::shared_ptr<TestOutput> testOutPut2 = componentManager->createComponent<TestOutput>(objB, gameObjectManager);
 	componentManager->addComponent(testOutPut2);
 	objectCount++;
 
@@ -47,7 +47,7 @@ void GameManager::run() {
 		if (command == "add") {
 			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
-			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager, componentManager);
+			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager);
 			componentManager->addComponent(testOutPut);
 			if (objectCount < (int)objectName.size()) {
 				++objectCount;
@@ -57,14 +57,10 @@ void GameManager::run() {
 		else if (command == "clone") {
 			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
-			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager, componentManager);
+			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager);
 			componentManager->addComponent(testOutPut);
 
-			int cloneNum;
-			std::cin >> cloneNum;
-			std::cout << std::endl;
-
-			std::shared_ptr<CloneObject> cloneObject = componentManager->createComponent<CloneObject>(obj, gameObjectManager, componentManager);
+			std::shared_ptr<CloneObject> cloneObject = componentManager->createComponent<CloneObject>(obj, gameObjectManager);
 			componentManager->addComponent(cloneObject);
 
 			if (objectCount < (int)objectName.size()) {
@@ -75,10 +71,10 @@ void GameManager::run() {
 		else if (command == "destroy") {
 			std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ objectName[objectCount] });
 			gameObjectManager->add(obj);
-			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager, componentManager);
+			std::shared_ptr<TestOutput> testOutPut = componentManager->createComponent<TestOutput>(obj, gameObjectManager);
 			componentManager->addComponent(testOutPut);
 
-			std::shared_ptr<DestroyObject> destroyObject = componentManager->createComponent<DestroyObject>(obj, gameObjectManager, componentManager);
+			std::shared_ptr<DestroyObject> destroyObject = componentManager->createComponent<DestroyObject>(obj, gameObjectManager);
 			componentManager->addComponent(destroyObject);
 
 			if (objectCount < (int)objectName.size()) {

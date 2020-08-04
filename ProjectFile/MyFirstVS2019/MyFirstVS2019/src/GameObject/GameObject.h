@@ -12,7 +12,7 @@ public:
 	// •`‰æ
 	void draw();
 	// –¼‘O‚ð•Ô‚·
-	std::string& getName();
+	const std::string getName();
 private:
 	// –¼‘O
 	std::string _name;

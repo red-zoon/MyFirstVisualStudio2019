@@ -1,5 +1,4 @@
 #include "GameObject.h"
-#include <iostream>
 
 // コンストラクタ
 GameObject::GameObject(const std::string& name) {
@@ -16,6 +15,6 @@ void GameObject::update() {
 void GameObject::draw() {
 }
 
-std::string& GameObject::getName() {
+const std::string GameObject::getName() {
 	return _name;
 }
