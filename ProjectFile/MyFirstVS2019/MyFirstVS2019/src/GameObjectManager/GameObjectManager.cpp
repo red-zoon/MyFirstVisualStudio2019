@@ -1,10 +1,6 @@
 #include "GameObjectManager.h"
 #include "../GameObject/GameObject.h"
 
-// デストラクタ
-GameObjectManager::~GameObjectManager() {
-}
-
 void GameObjectManager::add(const std::shared_ptr<GameObject>& gameObject) {
 	_gameObjects.push_back(gameObject);
 }

@@ -5,10 +5,6 @@ GameObject::GameObject(const std::string& name) {
 	_name = name;
 }
 
-// デストラクタ
-GameObject::~GameObject() {
-}
-
 void GameObject::update() {
 }
 

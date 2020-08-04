@@ -2,8 +2,8 @@
 #include "../GameObject/GameObject.h"
 #include "../Component/Component.h"
 
-// デストラクタ
-ComponentManager::~ComponentManager() {
+// コンストラクタ
+ComponentManager::ComponentManager(const std::shared_ptr<GameObjectManager>& gameObjectManager) : _gameObjectManager(gameObjectManager) {
 }
 
 void ComponentManager::update() {

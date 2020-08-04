@@ -9,7 +9,7 @@ public:
 	// コンストラクタ
 	GameObjectManager() = default;
 	// デストラクタ
-	~GameObjectManager();
+	~GameObjectManager() = default;
 	// ゲームオブジェクトの追加
 	void add(const std::shared_ptr<GameObject>& gameObject);
 	// ゲームオブジェクトの更新

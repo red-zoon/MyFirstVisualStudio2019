@@ -6,7 +6,7 @@ public:
 	// コンストラクタ
 	explicit GameObject(const std::string& name);
 	// デストラクタ
-	~GameObject();
+	~GameObject() = default;
 	// 更新
 	void update();
 	// 描画

@@ -19,7 +19,7 @@ public:
 	virtual void draw() {};
 protected:
 	// GameObject‚Ì–¼‘O
-	const std::weak_ptr<GameObject> _nameObject;
+	const std::weak_ptr<GameObject> _gameObject;
 	const std::weak_ptr<GameObjectManager> _gameObjectManager;
 	const std::weak_ptr<ComponentManager> _componentManager;
 };

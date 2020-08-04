@@ -7,7 +7,7 @@ public:
 	// コンストラクタ
 	using Component::Component;
 	// デストラクタ
-	virtual ~TestOutput() {};
+	virtual ~TestOutput() = default;
 	// 更新
 	virtual void update() override;
 	// 描画

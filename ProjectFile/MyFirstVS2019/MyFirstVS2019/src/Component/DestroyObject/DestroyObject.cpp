@@ -7,7 +7,7 @@ void DestroyObject::update() {
 	std::cin >> command;
 	std::cout << std::endl;
 
-	std::cout << _nameObject.lock()->getName() << " " << "destroy" << std::endl;
+	std::cout << _gameObject.lock()->getName() << " " << "destroy" << std::endl;
 }
 
 void DestroyObject::draw() {
