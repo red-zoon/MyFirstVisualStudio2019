@@ -11,9 +11,9 @@ void CloneObject::update() {
 
 	if (cloneNum > 0 && isClone == false) {
 		std::shared_ptr<GameObject> obj = std::make_shared<GameObject>(_gameObject.lock()->getName());
-		_gameObjectManager.lock()->add(obj);
-		std::shared_ptr<TestOutput> testOutPut = _componentManager.lock()->createComponent<TestOutput>(obj, _gameObjectManager.lock());
-		_componentManager.lock()->addComponent(testOutPut);
+		_GameObjectManager.lock()->add(obj);
+		std::shared_ptr<TestOutput> testOutPut = _ComponentManager.lock()->createComponent<TestOutput>(obj, _GameObjectManager.lock());
+		_ComponentManager.lock()->addComponent(testOutPut);
 
 		--cloneNum;
 		return;
