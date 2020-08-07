@@ -16,3 +16,22 @@ void ComponentManager::draw() {
 		component->draw();
 	}
 }
+
+void ComponentManager::lateUpdate() {
+	for (const auto& component : _components) {
+		component->lateUpdate();
+	}
+}
+
+void ComponentManager::searchAndDestroy(const std::string& targetName) {
+	int counter = 0;
+	for (const auto& component : _components) {
+		std::string name = component->getName();
+
+		if (name == targetName) {
+			_components.erase(std::next(_components.begin(), counter));
+			return;
+		}
+		counter++;
+	}
+}

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <memory>
 
 class GameObject;
@@ -17,7 +18,13 @@ public:
 	virtual void update() {};
 	// 描画
 	virtual void draw() {};
+	// 描画
+	virtual void lateUpdate() {};
+	// 被所持オブジェクトの名前を返す
+	const std::string& getName();
 protected:
+	// 被所持オブジェクトの名前
+	std::string _ownerName;
 	// 必要なポインタ群
 	const std::weak_ptr<GameObject> _ownerObjectPtr;
 	const std::weak_ptr<GameObjectManager> _gameObjectManager;

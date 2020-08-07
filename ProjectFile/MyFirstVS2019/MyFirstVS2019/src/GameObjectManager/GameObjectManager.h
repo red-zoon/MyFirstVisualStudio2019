@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <list>
 #include <memory>
 
@@ -16,6 +17,8 @@ public:
 	void update();
 	// ゲームオブジェクトの描画
 	void draw();
+	// ゲームオブジェクトの削除
+	void searchAndDestroy(const std::string& targetName);
 private:
 	// ゲームオブジェクトリスト
 	std::list<std::shared_ptr<GameObject>> _gameObjects;

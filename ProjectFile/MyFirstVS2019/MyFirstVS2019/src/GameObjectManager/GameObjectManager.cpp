@@ -16,3 +16,17 @@ void GameObjectManager::draw() {
 		gameObject->draw();
 	}
 }
+
+// ゲームオブジェクトの削除
+void GameObjectManager::searchAndDestroy(const std::string& targetName) {
+	int counter = 0;
+	for (const auto& gameObject : _gameObjects) {
+		std::string name = gameObject->getName();
+
+		if (name == targetName) {
+			_gameObjects.erase(std::next(_gameObjects.begin(), counter));
+			return;
+		}
+		counter++;
+	}
+}

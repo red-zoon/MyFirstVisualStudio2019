@@ -1,14 +1,22 @@
 #include "DestroyObject.h"
-#include "../../GameObject/GameObject.h"
+#include "../../GameObjectManager/GameObjectManager.h"
+#include "../../ComponentManager/ComponentManager.h"
 #include <iostream>
 
 void DestroyObject::update() {
-	std::string command;
-	std::cin >> command;
-	std::cout << std::endl;
+	if (onFirstTime) {
+		std::cin >> targetName;
+		std::cout << std::endl;
 
-	std::cout << _ownerObjectPtr.lock()->getName() << " " << "destroy" << std::endl;
+		onFirstTime = false;
+	}
 }
 
-void DestroyObject::draw() {
+void DestroyObject::lateUpdate() {
+	if (onFirstTimeLate) {
+		_gameObjectManager.lock()->searchAndDestroy(targetName);
+		_componentManager.lock()->searchAndDestroy(targetName);
+
+		onFirstTimeLate = false;
+	}
 }

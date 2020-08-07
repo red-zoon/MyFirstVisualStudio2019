@@ -16,7 +16,6 @@ void GameManager::run() {
 	std::shared_ptr<GameObjectManager> gameObjectManager = std::make_shared<GameObjectManager>();
 	std::shared_ptr<ComponentManager> componentManager = std::make_shared<ComponentManager>(gameObjectManager);
 
-
 	std::shared_ptr<GameObject> objA = createAndAddGameObject(gameObjectManager);
 	componentManager->createAndPushComponent<TestOutput>(objA);
 
@@ -38,18 +37,27 @@ void GameManager::run() {
 		if (command == "add") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
+
+			componentManager->lateUpdate();
+
 			continue;
 		}
 		else if (command == "clone") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
 			componentManager->createAndPushComponent<CloneObject>(obj);
+
+			componentManager->lateUpdate();
+
 			continue;
 		}
 		else if (command == "destroy") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
 			componentManager->createAndPushComponent<DestroyObject>(obj);
+
+			componentManager->lateUpdate();
+
 			continue;
 		}
 		else if (command == "end") {

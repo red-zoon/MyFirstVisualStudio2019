@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <list>
 #include <memory>
 
@@ -29,6 +30,10 @@ public:
 	void update();
 	// コンポーネントの描画
 	void draw();
+	// コンポーネントの遅延更新
+	void lateUpdate();
+	// コンポーネントの削除
+	void searchAndDestroy(const std::string& targetName);
 private:
 	const std::shared_ptr<GameObjectManager> _gameObjectManager;
 	// コンポーネントリスト
