@@ -6,7 +6,6 @@
 void DestroyObject::update() {
 	if (onFirstTime) {
 		std::cin >> targetName;
-		std::cout << std::endl;
 
 		onFirstTime = false;
 	}

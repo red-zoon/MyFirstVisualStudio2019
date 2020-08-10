@@ -22,14 +22,14 @@ void GameManager::run() {
 	std::shared_ptr<GameObject> objB = createAndAddGameObject(gameObjectManager);
 	componentManager->createAndPushComponent<TestOutput>(objB);
 
+	componentManager->update();
+	std::cout << std::endl;
+
+	componentManager->draw();
+	std::cout << std::endl;
+
 	while (true)
 	{
-		componentManager->update();
-		std::cout << std::endl;
-
-		componentManager->draw();
-		std::cout << std::endl;
-
 		std::string command;
 		std::cin >> command;
 		std::cout << std::endl;
@@ -37,32 +37,28 @@ void GameManager::run() {
 		if (command == "add") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
-
-			componentManager->lateUpdate();
-
-			continue;
 		}
 		else if (command == "clone") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
 			componentManager->createAndPushComponent<CloneObject>(obj);
-
-			componentManager->lateUpdate();
-
-			continue;
 		}
 		else if (command == "destroy") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
 			componentManager->createAndPushComponent<DestroyObject>(obj);
-
-			componentManager->lateUpdate();
-
-			continue;
 		}
 		else if (command == "end") {
 			break;
 		}
+
+		componentManager->update();
+		std::cout << std::endl;
+
+		componentManager->draw();
+		std::cout << std::endl;
+
+		componentManager->lateUpdate();
 	}
 
 	std::cout << "ƒvƒƒOƒ‰ƒ€I—¹" << std::endl;

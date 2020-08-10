@@ -35,6 +35,7 @@ public:
 	// コンポーネントの削除
 	void searchAndDestroy(const std::string& targetName);
 private:
+	// ゲームオブジェクトマネージャーのポインタ
 	const std::shared_ptr<GameObjectManager> _gameObjectManager;
 	// コンポーネントリスト
 	std::list<std::shared_ptr<Component>> _components;

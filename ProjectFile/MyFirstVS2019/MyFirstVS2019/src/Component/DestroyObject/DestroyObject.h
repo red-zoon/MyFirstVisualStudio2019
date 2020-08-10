@@ -1,5 +1,6 @@
 #pragma once
 #include "../Component.h"
+#include <string>
 
 class GameObject;
 
@@ -19,5 +20,5 @@ private:
 	bool onFirstTime{ true };
 	bool onFirstTimeLate{ true };
 	// ターゲットの名前を格納
-	std::string targetName;
+	std::string targetName{ "" };
 };

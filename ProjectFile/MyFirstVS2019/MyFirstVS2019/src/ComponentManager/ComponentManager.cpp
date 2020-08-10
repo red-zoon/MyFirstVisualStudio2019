@@ -32,6 +32,7 @@ void ComponentManager::searchAndDestroy(const std::string& targetName) {
 			_components.erase(std::next(_components.begin(), counter));
 			return;
 		}
+
 		counter++;
 	}
 }

@@ -1,5 +1,6 @@
 #include "GameObjectManager.h"
 #include "../GameObject/GameObject.h"
+#include <iostream>
 
 void GameObjectManager::add(const std::shared_ptr<GameObject>& gameObject) {
 	_gameObjects.push_back(gameObject);
@@ -27,6 +28,7 @@ void GameObjectManager::searchAndDestroy(const std::string& targetName) {
 			_gameObjects.erase(std::next(_gameObjects.begin(), counter));
 			return;
 		}
+
 		counter++;
 	}
 }
