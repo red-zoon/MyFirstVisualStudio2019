@@ -18,4 +18,6 @@ private:
 	const char _startChar{ 'A' };
 	const char _endChar{ 'Z' };
 	int _objectCount{ 0 };
+	// デストロイオブジェクト用カウンタ
+	int _destroyCount{ 0 };
 };

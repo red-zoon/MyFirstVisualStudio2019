@@ -11,6 +11,7 @@ class Component
 public:
 	// コンポーネント
 	Component(const std::shared_ptr<GameObject>& ownerGameObject, const std::shared_ptr<GameObjectManager>& gameObjectManager, const std::shared_ptr<ComponentManager>& componentManager);
+	Component(const std::shared_ptr<GameObject>& ownerGameObject, const std::shared_ptr<GameObjectManager>& gameObjectManager, const std::shared_ptr<ComponentManager>& componentManager, const std::string& targetName);
 
 	// 仮想デストラクタ
 	virtual ~Component() {};
@@ -29,4 +30,6 @@ protected:
 	const std::weak_ptr<GameObject> _ownerObjectPtr;
 	const std::weak_ptr<GameObjectManager> _gameObjectManager;
 	const std::weak_ptr<ComponentManager> _componentManager;
+	// ターゲットの名前を格納
+	std::string _targetName{ "" };
 };

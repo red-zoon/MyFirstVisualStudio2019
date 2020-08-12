@@ -5,6 +5,7 @@
 
 class GameObject;
 class Component;
+class DestroyObject;
 class GameObjectManager;
 class ComponentManager;
 
@@ -16,13 +17,14 @@ public:
 	~ComponentManager() = default;
 	// コンポーネントの生成
 	template<class T>
-	std::shared_ptr<T> createComponent(const std::shared_ptr<GameObject>& ownerGameObject) {
-		return std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this()); // shared_from_this()を使用する際はどこかで親クラスのshared_ptrを作っている必要がある。
-	}
-	// コンポーネントの生成
-	template<class T>
 	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject) {
-		std::shared_ptr<T> component = createComponent<T>(ownerGameObject);
+		std::shared_ptr<T> component = std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this());
+		_components.push_back(component);
+		return component;
+	}
+	template<class T>
+	std::shared_ptr<DestroyObject> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject, const std::string& targetName) {
+		std::shared_ptr<DestroyObject> component = std::make_shared<DestroyObject>(ownerGameObject, _gameObjectManager, shared_from_this(), targetName);
 		_components.push_back(component);
 		return component;
 	}
