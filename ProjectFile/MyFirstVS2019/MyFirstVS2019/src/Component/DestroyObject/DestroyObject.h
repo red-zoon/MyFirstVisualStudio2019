@@ -12,9 +12,7 @@ public:
 		const std::shared_ptr<GameObjectManager>& gameObjectManager,
 		const std::shared_ptr<ComponentManager>& componentManager,
 		const std::string& targetName
-	) : Component::Component(ownerGameObject, gameObjectManager, componentManager),
-		_targetName(targetName) {};
-
+	);
 	// デストラクタ
 	virtual ~DestroyObject() {};
 	// 更新

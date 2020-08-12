@@ -11,6 +11,6 @@ void GameObject::update() {
 void GameObject::draw() {
 }
 
-const std::string& GameObject::getName() {
+const std::string& GameObject::getName() const {
 	return _name;
 }

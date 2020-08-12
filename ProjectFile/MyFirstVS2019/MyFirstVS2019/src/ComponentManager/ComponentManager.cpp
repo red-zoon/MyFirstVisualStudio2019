@@ -24,15 +24,17 @@ void ComponentManager::lateUpdate() {
 }
 
 void ComponentManager::searchAndDestroy(const std::string& targetName) {
-	int counter = 0;
-	for (const auto& component : _components) {
-		std::string name = component->getName();
+	_components.remove_if([targetName](const auto& component) {return component->getName() == targetName; });
 
-		if (name == targetName) {
-			_components.erase(std::next(_components.begin(), counter));
-			return;
-		}
+	//int counter = 0;
+	//for (const auto& component : _components) {
+	//	std::string name = component->getName();
 
-		counter++;
-	}
+	//	if (name == targetName) {
+	//		_components.erase(std::next(_components.begin(), counter));
+	//		return;
+	//	}
+
+	//	counter++;
+	//}
 }
