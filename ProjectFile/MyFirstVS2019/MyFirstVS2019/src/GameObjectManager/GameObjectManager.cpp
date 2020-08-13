@@ -20,6 +20,12 @@ void GameObjectManager::draw() {
 
 // ゲームオブジェクトの削除
 void GameObjectManager::searchAndDestroy(const std::string& targetName) {
+	for (const auto& gameobject : _gameObjects) {
+		if (gameobject->getName() == targetName) {
+			gameobject->removeHaveComponentAll();
+		}
+	}
+
 	_gameObjects.remove_if([targetName](const auto& gameObject) {return gameObject->getName() == targetName; }); // ラムダ式(時間がある時に調べる)
 
 	//int counter = 0;

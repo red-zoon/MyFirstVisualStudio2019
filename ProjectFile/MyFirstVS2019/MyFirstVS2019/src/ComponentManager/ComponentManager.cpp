@@ -1,7 +1,6 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
 
-// コンストラクタ
 ComponentManager::ComponentManager(const std::shared_ptr<GameObjectManager>& gameObjectManager) : _gameObjectManager(gameObjectManager) {
 }
 
@@ -23,18 +22,10 @@ void ComponentManager::lateUpdate() {
 	}
 }
 
+void ComponentManager::removeDeadComponent() {
+	_components.remove_if([](const auto& component) {return component->isDead(); });
+}
+
 void ComponentManager::searchAndDestroy(const std::string& targetName) {
 	_components.remove_if([targetName](const auto& component) {return component->getName() == targetName; });
-
-	//int counter = 0;
-	//for (const auto& component : _components) {
-	//	std::string name = component->getName();
-
-	//	if (name == targetName) {
-	//		_components.erase(std::next(_components.begin(), counter));
-	//		return;
-	//	}
-
-	//	counter++;
-	//}
 }

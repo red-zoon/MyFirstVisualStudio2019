@@ -47,11 +47,14 @@ void GameManager::run() {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
 			char nextChar = _startChar + _destroyCount;
+			++_destroyCount;
 			componentManager->createAndPushComponent<DestroyObject>(obj, "Object" + std::string{ nextChar });
 		}
 		else if (command == "end") {
 			break;
 		}
+
+		componentManager->removeDeadComponent();
 
 		componentManager->update();
 		std::cout << std::endl;

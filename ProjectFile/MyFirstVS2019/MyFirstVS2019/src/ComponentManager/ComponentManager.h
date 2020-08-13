@@ -2,6 +2,7 @@
 #include <string>
 #include <list>
 #include <memory>
+#include "../GameObject/GameObject.h"
 
 class GameObject;
 class Component;
@@ -16,16 +17,11 @@ public:
 	// デストラクタ
 	~ComponentManager() = default;
 	// コンポーネントの生成
-	template<class T>
-	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject) {
-		std::shared_ptr<T> component = std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this());
+	template<class T, class... Args>
+	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject,const Args&... args) {
+		std::shared_ptr<T> component = std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this(), args...);
 		_components.push_back(component);
-		return component;
-	}
-	template<class T>
-	std::shared_ptr<DestroyObject> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject, const std::string& targetName) {
-		std::shared_ptr<DestroyObject> component = std::make_shared<DestroyObject>(ownerGameObject, _gameObjectManager, shared_from_this(), targetName);
-		_components.push_back(component);
+		ownerGameObject->pushHaveComponentList(component);
 		return component;
 	}
 	// コンポーネントの更新
@@ -34,6 +30,8 @@ public:
 	void draw();
 	// コンポーネントの遅延更新
 	void lateUpdate();
+	// 死亡フラグの立ったコンポーネントを除去
+	void removeDeadComponent();
 	// コンポーネントの削除
 	void searchAndDestroy(const std::string& targetName);
 private:

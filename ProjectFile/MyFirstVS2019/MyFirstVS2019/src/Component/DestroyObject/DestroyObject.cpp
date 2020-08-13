@@ -12,5 +12,4 @@ DestroyObject::DestroyObject(const std::shared_ptr<GameObject>& ownerGameObject,
 
 void DestroyObject::lateUpdate() {
 	_gameObjectManager.lock()->searchAndDestroy(_targetName);
-	_componentManager.lock()->searchAndDestroy(_targetName);
 }

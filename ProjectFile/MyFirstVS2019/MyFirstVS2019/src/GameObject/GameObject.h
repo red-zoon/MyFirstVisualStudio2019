@@ -1,5 +1,9 @@
 #pragma once
 #include <string>
+#include <memory>
+#include <list>
+
+class Component;
 
 class GameObject {
 public:
@@ -13,7 +17,13 @@ public:
 	void draw();
 	// 名前を返す
 	const std::string& getName() const;
+	// コンポーネントを所持リストに追加
+	void pushHaveComponentList(const std::shared_ptr<Component> component);
+	// 所持しているコンポーネントを全て除去
+	void removeHaveComponentAll();
 private:
 	// 名前
 	std::string _name;
+	// 所持しているコンポーネントの弱ポインタ
+	std::list<std::weak_ptr<Component>> _haveComponents;
 };

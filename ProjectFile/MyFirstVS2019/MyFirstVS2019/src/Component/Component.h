@@ -22,9 +22,15 @@ public:
 	virtual void lateUpdate() {};
 	// 被所持オブジェクトの名前を返す
 	const std::string& getName() const;
+
+	bool isDead() const;
+
+	void isDeadOn();
 protected:
 	// 必要なポインタ群
 	const std::weak_ptr<GameObject> _ownerObjectPtr;
 	const std::weak_ptr<GameObjectManager> _gameObjectManager;
 	const std::weak_ptr<ComponentManager> _componentManager;
+
+	bool _isDead{ false };
 };
