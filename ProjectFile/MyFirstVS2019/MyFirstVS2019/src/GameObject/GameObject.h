@@ -18,7 +18,7 @@ public:
 	// 名前を返す
 	const std::string& getName() const;
 	// コンポーネントを所持リストに追加
-	void pushHaveComponentList(const std::shared_ptr<Component> component);
+	void pushHaveComponentList(const std::shared_ptr<Component>& component);
 	// 所持しているコンポーネントを全て除去
 	void removeHaveComponentAll();
 private:

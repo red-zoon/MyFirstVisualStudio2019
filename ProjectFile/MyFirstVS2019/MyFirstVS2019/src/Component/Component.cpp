@@ -9,11 +9,10 @@ const std::string& Component::getName() const {
 	return _ownerObjectPtr.lock()->getName();
 }
 
-bool Component::isDead() const
-{
+bool Component::isDead() const {
 	return _isDead;
 }
 
-void Component::isDeadOn(){
+void Component::isDeadOn() {
 	_isDead = true;
 }

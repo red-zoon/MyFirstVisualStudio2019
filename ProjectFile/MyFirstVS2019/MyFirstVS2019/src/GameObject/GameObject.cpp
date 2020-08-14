@@ -16,7 +16,7 @@ const std::string& GameObject::getName() const {
 	return _name;
 }
 
-void GameObject::pushHaveComponentList(const std::shared_ptr<Component> component) {
+void GameObject::pushHaveComponentList(const std::shared_ptr<Component>& component) {
 	_haveComponents.push_back(component);
 }
 

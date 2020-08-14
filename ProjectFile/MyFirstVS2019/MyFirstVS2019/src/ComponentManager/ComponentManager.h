@@ -6,9 +6,7 @@
 
 class GameObject;
 class Component;
-class DestroyObject;
 class GameObjectManager;
-class ComponentManager;
 
 class ComponentManager : public std::enable_shared_from_this<ComponentManager> {
 public:

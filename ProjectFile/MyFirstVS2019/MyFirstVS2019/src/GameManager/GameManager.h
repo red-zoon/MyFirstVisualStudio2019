@@ -19,5 +19,5 @@ private:
 	const char _endChar{ 'Z' };
 	int _objectCount{ 0 };
 	// デストロイオブジェクト用カウンタ
-	int _destroyCount{ 0 };
+	int _destroyObjectCount{ 0 };
 };

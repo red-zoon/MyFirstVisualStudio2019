@@ -46,8 +46,8 @@ void GameManager::run() {
 		else if (command == "destroy") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
-			char nextChar = _startChar + _destroyCount;
-			++_destroyCount;
+			char nextChar = _startChar + _destroyObjectCount;
+			++_destroyObjectCount;
 			componentManager->createAndPushComponent<DestroyObject>(obj, "Object" + std::string{ nextChar });
 		}
 		else if (command == "end") {
