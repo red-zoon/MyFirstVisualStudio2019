@@ -41,7 +41,7 @@ void GameManager::run() {
 		else if (command == "clone") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
 			componentManager->createAndPushComponent<TestOutput>(obj);
-			componentManager->createAndPushComponent<CloneObject>(obj);
+			componentManager->createAndPushComponent<CloneObject>(obj, 2);
 		}
 		else if (command == "destroy") {
 			std::shared_ptr<GameObject> obj = createAndAddGameObject(gameObjectManager);
@@ -68,7 +68,7 @@ void GameManager::run() {
 	std::cout << "ƒvƒƒOƒ‰ƒ€I—¹" << std::endl;
 }
 
-std::shared_ptr<GameObject> GameManager::createAndAddGameObject(const std::shared_ptr<GameObjectManager>& ownerManager){
+std::shared_ptr<GameObject> GameManager::createAndAddGameObject(const std::shared_ptr<GameObjectManager>& ownerManager) {
 	char nextChar = _startChar + _objectCount;
 	std::shared_ptr<GameObject> obj = std::make_shared<GameObject>("Object" + std::string{ nextChar });
 	ownerManager->add(obj);

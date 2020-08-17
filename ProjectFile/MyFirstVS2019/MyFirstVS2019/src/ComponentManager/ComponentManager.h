@@ -16,7 +16,7 @@ public:
 	~ComponentManager() = default;
 	// コンポーネントの生成
 	template<class T, class... Args>
-	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject,const Args&... args) {
+	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject, const Args&... args) {
 		std::shared_ptr<T> component = std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this(), args...);
 		_components.push_back(component);
 		ownerGameObject->pushHaveComponentList(component);

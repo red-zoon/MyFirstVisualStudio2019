@@ -17,6 +17,11 @@ void GameObjectManager::draw() {
 	}
 }
 
+void GameObjectManager::cloneGameObject(const std::shared_ptr<GameObject>& baseObject) {
+	std::shared_ptr<GameObject> obj = std::make_shared<GameObject>(baseObject->getName());
+	shared_from_this()->add(obj);
+}
+
 // ゲームオブジェクトの削除
 void GameObjectManager::searchAndDestroy(const std::string& targetName) {
 	for (const auto& gameobject : _gameObjects) {
@@ -24,6 +29,5 @@ void GameObjectManager::searchAndDestroy(const std::string& targetName) {
 			gameobject->removeHaveComponentAll();
 		}
 	}
-
 	_gameObjects.remove_if([targetName](const auto& gameObject) {return gameObject->getName() == targetName; }); // ラムダ式(時間がある時に調べる)
 }

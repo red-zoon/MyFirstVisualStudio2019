@@ -8,15 +8,20 @@ class CloneObject : public Component
 {
 public:
 	// コンストラクタ
-	using Component::Component;
+	CloneObject(const std::shared_ptr<GameObject>& ownerGameObject,
+		const std::shared_ptr<GameObjectManager>& gameObjectManager,
+		const std::shared_ptr<ComponentManager>& componentManager,
+		const int& cloneNum
+	);
 	// デストラクタ
 	virtual ~CloneObject() {};
 	// 更新
 	virtual void update() override;
-	// 描画
-	virtual void draw() override;
+	// 更新
+	virtual void lateUpdate() override;
 private:
-	bool awake{ false };
-	int cloneNum{ 0 };
-	bool isClone{ false };
+	// 複製の回数をカウント
+	int _cloneCount;
+	// 生成時か?
+	bool _onFirstTime{ true };
 };
