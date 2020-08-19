@@ -17,9 +17,10 @@ void GameObjectManager::draw() {
 	}
 }
 
-void GameObjectManager::cloneGameObject(const std::shared_ptr<GameObject>& baseObject) {
-	std::shared_ptr<GameObject> obj = std::make_shared<GameObject>(baseObject->getName());
-	shared_from_this()->add(obj);
+std::shared_ptr<GameObject> GameObjectManager::cloneGameObject(const std::shared_ptr<GameObject>& baseObject) {
+	std::shared_ptr<GameObject> cloneObj = std::make_shared<GameObject>(baseObject->getName());
+	shared_from_this()->add(cloneObj);
+	return cloneObj;
 }
 
 // ゲームオブジェクトの削除

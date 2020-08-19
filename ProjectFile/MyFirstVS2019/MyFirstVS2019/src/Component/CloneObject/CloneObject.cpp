@@ -22,9 +22,11 @@ void CloneObject::lateUpdate() {
 
 	if (_cloneCount > 0) {
 		_cloneCount--;
-		std::shared_ptr<GameObject> obj = std::make_shared<GameObject>(_ownerObjectPtr.lock()->getName());
-		_gameObjectManager.lock()->add(obj);
-		_componentManager.lock()->createAndPushComponent<TestOutput>(obj);
-		_componentManager.lock()->createAndPushComponent<CloneObject>(obj, _cloneCount);
+		std::shared_ptr<GameObject> cloneObj = _gameObjectManager.lock()->cloneGameObject(_ownerObjectPtr.lock());
+		_componentManager.lock()->componentCopy(_ownerObjectPtr.lock(), cloneObj);
 	}
+}
+
+void CloneObject::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {
+	_componentManager.lock()->createAndPushComponent<CloneObject>(ownerGameObject, _cloneCount);
 }

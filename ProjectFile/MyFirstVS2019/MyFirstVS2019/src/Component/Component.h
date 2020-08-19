@@ -20,6 +20,8 @@ public:
 	virtual void draw() {};
 	// 描画
 	virtual void lateUpdate() {};
+	// 自身のクローンを作成
+	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {};
 	// 被所持オブジェクトの名前を返す
 	const std::string& getName() const;
 	// 自身の死亡フラグを返却

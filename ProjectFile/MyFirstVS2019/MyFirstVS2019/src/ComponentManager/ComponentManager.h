@@ -2,6 +2,7 @@
 #include <string>
 #include <list>
 #include <memory>
+#include <typeinfo>
 #include "../GameObject/GameObject.h"
 
 class GameObject;
@@ -28,6 +29,8 @@ public:
 	void draw();
 	// コンポーネントの遅延更新
 	void lateUpdate();
+	// コンポーネントの複製
+	void componentCopy(const std::shared_ptr<GameObject>& baseGameObject, const std::shared_ptr<GameObject>& coverGameObject);
 	// 死亡フラグの立ったコンポーネントを除去
 	void removeDeadComponent();
 	// コンポーネントの削除
@@ -37,4 +40,4 @@ private:
 	const std::shared_ptr<GameObjectManager> _gameObjectManager;
 	// コンポーネントリスト
 	std::list<std::shared_ptr<Component>> _components;
-};
+}; 

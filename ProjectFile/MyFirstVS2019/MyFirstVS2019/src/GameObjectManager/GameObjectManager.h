@@ -18,7 +18,7 @@ public:
 	// ゲームオブジェクトの描画
 	void draw();
 	// ゲームオブジェクトの複製
-	void cloneGameObject(const std::shared_ptr<GameObject>& baseObject);
+	std::shared_ptr<GameObject> cloneGameObject(const std::shared_ptr<GameObject>& baseObject);
 	// ゲームオブジェクトの削除
 	void searchAndDestroy(const std::string& targetName);
 private:
