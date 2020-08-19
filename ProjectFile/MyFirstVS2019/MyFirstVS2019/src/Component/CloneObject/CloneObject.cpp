@@ -1,7 +1,5 @@
 #include "CloneObject.h"
-#include "../../GameObject/GameObject.h"
 #include "../../GameObjectManager/GameObjectManager.h"
-#include "../TestOutput/TestOutput.h"
 #include "../../ComponentManager/ComponentManager.h"
 
 CloneObject::CloneObject(const std::shared_ptr<GameObject>& ownerGameObject,
