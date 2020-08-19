@@ -5,6 +5,13 @@ void GameObjectManager::add(const std::shared_ptr<GameObject>& gameObject) {
 	_gameObjects.push_back(gameObject);
 }
 
+void GameObjectManager::moveAddedComponents() {
+	for (const auto& gameObject : _subGameObjects) {
+		_subGameObjects.push_back(gameObject);
+	}
+	_subGameObjects.clear();
+}
+
 void GameObjectManager::update() {
 	for (const auto& gameObject : _gameObjects) {
 		gameObject->update();

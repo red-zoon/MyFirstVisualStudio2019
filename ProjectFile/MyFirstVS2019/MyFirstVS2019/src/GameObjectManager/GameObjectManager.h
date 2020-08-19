@@ -13,6 +13,8 @@ public:
 	~GameObjectManager() = default;
 	// ゲームオブジェクトの追加
 	void add(const std::shared_ptr<GameObject>& gameObject);
+	// 前のフレームに追加されたコンポーネントをリストに反映
+	void moveAddedComponents();
 	// ゲームオブジェクトの更新
 	void update();
 	// ゲームオブジェクトの描画
@@ -24,4 +26,6 @@ public:
 private:
 	// ゲームオブジェクトリスト
 	std::list<std::shared_ptr<GameObject>> _gameObjects;
+	// クッション用ゲームオブジェクトリスト
+	std::list<std::shared_ptr<GameObject>> _subGameObjects;
 };
