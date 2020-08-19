@@ -5,19 +5,11 @@
 CloneObject::CloneObject(const std::shared_ptr<GameObject>& ownerGameObject,
 	const std::shared_ptr<GameObjectManager>& gameObjectManager,
 	const std::shared_ptr<ComponentManager>& componentManager,
-	const int& cloneNum
+	const int cloneNum
 ) : Component(ownerGameObject, gameObjectManager, componentManager), _cloneCount(cloneNum) {
 };
 
-void CloneObject::update() {
-	if (_onFirstTime) {
-		_onFirstTime = false;
-	}
-}
-
 void CloneObject::lateUpdate() {
-	if (_onFirstTime) return;
-
 	if (_cloneCount > 0) {
 		_cloneCount--;
 		std::shared_ptr<GameObject> cloneObj = _gameObjectManager.lock()->cloneGameObject(_ownerObjectPtr.lock());
@@ -25,6 +17,6 @@ void CloneObject::lateUpdate() {
 	}
 }
 
-void CloneObject::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {
+void CloneObject::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const {
 	_componentManager.lock()->createAndPushComponent<CloneObject>(ownerGameObject, _cloneCount);
 }

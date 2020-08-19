@@ -14,6 +14,6 @@ void DestroyObject::lateUpdate() {
 	_gameObjectManager.lock()->searchAndDestroy(_targetName);
 }
 
-void DestroyObject::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {
+void DestroyObject::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const {
 	_componentManager.lock()->createAndPushComponent<DestroyObject>(ownerGameObject, _targetName);
 }

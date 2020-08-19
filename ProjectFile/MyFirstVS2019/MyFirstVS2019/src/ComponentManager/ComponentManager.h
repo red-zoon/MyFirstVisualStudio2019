@@ -2,10 +2,8 @@
 #include <string>
 #include <list>
 #include <memory>
-#include <typeinfo>
 #include "../GameObject/GameObject.h"
 
-class GameObject;
 class Component;
 class GameObjectManager;
 
@@ -19,10 +17,12 @@ public:
 	template<class T, class... Args>
 	std::shared_ptr<T> createAndPushComponent(const std::shared_ptr<GameObject>& ownerGameObject, const Args&... args) {
 		std::shared_ptr<T> component = std::make_shared<T>(ownerGameObject, _gameObjectManager, shared_from_this(), args...);
-		_components.push_back(component);
+		_subComponents.push_back(component);
 		ownerGameObject->pushHaveComponentList(component);
 		return component;
 	}
+	// 前のフレームに追加されたコンポーネントをリストに反映
+	void moveAddedComponents();
 	// コンポーネントの更新
 	void update();
 	// コンポーネントの描画
@@ -40,4 +40,6 @@ private:
 	const std::shared_ptr<GameObjectManager> _gameObjectManager;
 	// コンポーネントリスト
 	std::list<std::shared_ptr<Component>> _components;
+	// クッション用コンポーネントリスト
+	std::list<std::shared_ptr<Component>> _subComponents;
 }; 

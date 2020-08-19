@@ -1,12 +1,14 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
-#include "../Component/TestOutput/TestOutput.h"
-#include "../Component/CloneObject/CloneObject.h"
-#include "../Component/DestroyObject/DestroyObject.h"
-
-#include <iostream>
 
 ComponentManager::ComponentManager(const std::shared_ptr<GameObjectManager>& gameObjectManager) : _gameObjectManager(gameObjectManager) {
+}
+
+void ComponentManager::moveAddedComponents() {
+	for (const auto& component : _subComponents) {
+		_components.push_back(component);
+	}
+	_subComponents.clear();
 }
 
 void ComponentManager::update() {

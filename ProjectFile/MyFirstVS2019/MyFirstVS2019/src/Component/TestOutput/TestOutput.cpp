@@ -11,6 +11,6 @@ void TestOutput::draw() {
 	std::cout << _ownerObjectPtr.lock()->getName() << " " << "draw" << std::endl;
 }
 
-void TestOutput::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {
+void TestOutput::createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const {
 	_componentManager.lock()->createAndPushComponent<TestOutput>(ownerGameObject);
 }

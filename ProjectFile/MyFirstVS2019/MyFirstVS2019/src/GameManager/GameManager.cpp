@@ -22,6 +22,8 @@ void GameManager::run() {
 	std::shared_ptr<GameObject> objB = createAndAddGameObject(gameObjectManager);
 	componentManager->createAndPushComponent<TestOutput>(objB);
 
+	componentManager->moveAddedComponents();
+
 	componentManager->update();
 	std::cout << std::endl;
 
@@ -55,6 +57,7 @@ void GameManager::run() {
 		}
 
 		componentManager->removeDeadComponent();
+		componentManager->moveAddedComponents();
 
 		componentManager->update();
 		std::cout << std::endl;

@@ -13,7 +13,7 @@ public:
 	Component(const std::shared_ptr<GameObject>& ownerGameObject, const std::shared_ptr<GameObjectManager>& gameObjectManager, const std::shared_ptr<ComponentManager>& componentManager);
 
 	// 仮想デストラクタ
-	virtual ~Component() {};
+	virtual ~Component() = default;
 	// 更新
 	virtual void update() {};
 	// 描画
@@ -21,7 +21,7 @@ public:
 	// 描画
 	virtual void lateUpdate() {};
 	// 自身のクローンを作成
-	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) {};
+	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const {};
 	// 被所持オブジェクトの名前を返す
 	const std::string& getName() const;
 	// 自身の死亡フラグを返却

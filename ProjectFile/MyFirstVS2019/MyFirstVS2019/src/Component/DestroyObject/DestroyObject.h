@@ -14,11 +14,11 @@ public:
 		const std::string& targetName
 	);
 	// デストラクタ
-	virtual ~DestroyObject() {};
+	virtual ~DestroyObject() = default;
 	// 更新
 	virtual void lateUpdate() override;
 	// 自身のクローンを作成
-	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) override;
+	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const override;
 private:
 	// ターゲットの名前を格納
 	std::string _targetName;

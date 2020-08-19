@@ -13,5 +13,5 @@ public:
 	// •`‰æ
 	virtual void draw() override;
 	// ©g‚ÌƒNƒ[ƒ“‚ğì¬
-	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) override;
+	virtual void createMyClone(const std::shared_ptr<GameObject>& ownerGameObject) const override;
 };
